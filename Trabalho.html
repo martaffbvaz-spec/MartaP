@@ -1,0 +1,117 @@
+<!DOCTYPE html> 
+<html lang="pt-pt">  
+<head> 
+    <title>Trabalhos</title>
+
+    <style> 
+        body {
+            background-color: rgb(22, 21, 21);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 80px;
+            color: rgba(255, 253, 253, 0.9);
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* GRELHA tipo Instagram */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .grid img,
+        .grid video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .grid img:hover,
+        .grid video:hover {
+            transform: scale(1.03);
+        }
+
+        /* LIGHTBOX (imagem grande) */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img,
+        .lightbox video {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Trabalhos</h1>
+
+<div class="grid">
+
+    <img src="trabalhos/radium.png">
+    <img src="trabalhos/postcardtipografia-01.jpg">
+    <img src="trabalhos/postcardtipografia-02.jpg">
+    <img src="trabalhos/postcardtipografia-03.jpg">
+    <img src="trabalhos/cartaz.jpg">
+    <img src="trabalhos/1662025.gif">
+    <img src="trabalhos/H.jpg">
+    <img src="trabalhos/abctipografia.jpg">
+    <img src="trabalhos/carbonra.png">
+    <img src="trabalhos/pesto.png">
+    <img src="trabalhos/tomate.png">
+    <img src="imagens/IMG_2209.jpg">
+    <img src="trabalhos/animacaocatrinas.gif">
+    <img src="trabalhos/martacaixacha.jpg">
+
+    <video src="imagens/esqueiro.mp4"></video>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox"></div>
+
+<script>
+    const lightbox = document.getElementById("lightbox");
+
+    document.querySelectorAll(".grid img, .grid video").forEach(item => {
+        item.addEventListener("click", () => {
+            lightbox.classList.add("active");
+
+            if (item.tagName === "IMG") {
+                lightbox.innerHTML = `<img src="${item.src}">`;
+            } else {
+                lightbox.innerHTML = `<video src="${item.src}" controls autoplay></video>`;
+            }
+        });
+    });
+
+    lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+        lightbox.innerHTML = "";
+    });
+</script>
+
+</body>
+</html>

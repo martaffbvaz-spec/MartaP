@@ -1,0 +1,26 @@
+a{
+    color:rgb(248, 248, 248); 
+    text-decoration: none; 
+ text-align: center; 
+}
+
+ul{ 
+    list-style-type: none;
+    padding:0;
+} 
+
+#cabecalho{ 
+    background-color: rgb(34, 127, 177);
+    margin:0px ; 
+
+}
+h1{ 
+    color:rgb(255, 255, 255);
+    text-align: center; 
+   
+   
+}
+body{ 
+    margin: 0%;
+    padding:0%;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html> 
+<html lang="pt-pt"> 
+<head> 
+    <title>portfolio test</title>
+    <meta charset="UTF-8"> 
+    <link rel="stylesheet" href="estilos.css"> 
+
+    <style>
+        body {
+            background-color: rgb(239, 161, 161);
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 1000px;
+            margin: auto;
+            z-index: 10;
+        }
+
+        .imagem-fundo {
+            width: 1000px;
+            height: 700px;
+            display: block;
+        }
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 140px; /* maior */
+    text-align: center;
+    color: #060202;
+    margin: 20px 0;
+}
+
+        h1:hover {
+            color: #ffffff;
+        }
+
+        /* PASTAS */
+        .pasta-container {
+            position: absolute;
+            top: 120px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .pasta-container img {
+            width: 200px;
+            height: 200px;
+            transition: 0.3s;
+        }
+
+        .pasta-container:hover img {
+            transform: scale(1.08) rotate(-2deg);
+        }
+
+        .pasta-container p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: black;
+            letter-spacing: 1px;
+        }
+
+        .pasta1 { left: 20px; }
+        .pasta2 { left: 250px; }
+        .pasta3 { left: 490px; }
+        .pasta4 { left: 740px; }
+
+        /* ANIMAÇÃO */
+        @keyframes rodar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .fruit {
+            position: absolute;
+            left: 1010px;
+            top: -50px;
+            width: 200px;
+            animation: rodar 4s linear infinite;
+        }
+
+        .cursor-loading {
+            position: absolute;
+            left: 420px;
+            top: 310px;
+            width: 60px;
+            pointer-events: none;
+        }
+
+        .barra-ferramentas {
+            position: absolute;
+            left: -200px;
+            top: 150px;
+            width: 300px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Portfólio Marta Vaz </h1> 
+
+
+<div class="container">
+    <img src="imagens/imagemfundo.jpg" class="imagem-fundo">
+
+    <!-- FOTOGRAFIA -->
+    <div class="pasta-container pasta1">
+        <a href="fotografia.html">
+            <img src="imagens/pasta.png">
+        </a>
+        <p>FOTOGRAFIA</p>
+    </div>
+
+    <!-- MULTIMEDIA -->
+    <div class="pasta-container pasta2">
+        <a href="Multimedia.html">
+            <img src="imagens/pasta.png">
+        </a>
+        <p>VÍDEO & MEDIA</p>
+    </div>
+
+    <!-- SOBRE MIM -->
+    <div class="pasta-container pasta3">
+        <a href="contact.html">
+            <img src="imagens/pasta.png">
+        </a>
+        <p>SOBRE MIM</p>
+    </div>
+
+    <!-- TRABALHOS -->
+    <div class="pasta-container pasta4">
+        <a href="Trabalho.html">
+            <img src="imagens/pasta.png">
+        </a>
+        <p>TRABALHOS</p>
+    </div>
+
+    <!-- ELEMENTOS VISUAIS -->
+    <img src="imagens/p1.png" class="barra-ferramentas">
+    <img src="imagens/Untitled-2.png" class="fruit">
+    <img src="imagens/cursorhand.gif" class="cursor-loading">
+
+</div>
+
+</body>
+</html>

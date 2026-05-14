@@ -1,0 +1,242 @@
+  
+<!DOCTYPE html> 
+<html lang="pt-pt"> 
+<head>
+<meta charset="UTF-8"> 
+
+<style>
+body {
+  background-color: rgba(222, 176, 230, 0.733);
+  margin: 0;
+  padding: 20px;
+}
+
+/* --- VISUALIZADOR GRANDE NO TOPO --- */
+.visualizador-container {
+    position: relative;
+    width: 900px; /* Tamanho maior para ver bem */
+    height: 600px;
+    margin: 0 auto 100px auto; /* Centrado e com margem em baixo para separar das fotos livres */
+    background: white;
+    border: 4px solid black;
+    overflow: hidden;
+    z-index: 2000;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+}
+
+.slider-fotos {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.slider-fotos img {
+    min-width: 900px; /* Deve ser igual à largura do container */
+    height: 600px;
+    object-fit: contain; /* Garante que a foto aparece inteira sem cortar */
+    background-color: #1a1a1a; /* Fundo escuro realça a fotografia */
+}
+
+.btn-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 2001;
+    transition: background 0.3s;
+}
+
+.btn-slider:hover { background: black; }
+.btn-prev { left: 0; border-radius: 0 5px 5px 0; }
+.btn-next { right: 0; border-radius: 5px 0 0 5px; }
+
+/* Estilo das fotos livres (as que se mexem) */
+.foto {
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  z-index: 5;
+}
+
+.foto.grande {
+  height: 500px;
+}
+
+.botao-index {
+  position: absolute;
+  top: 20px;
+  right: 12px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  border: 2px solid black;
+  z-index: 3000; 
+  cursor: grab;
+  animation: arcoIris 5s infinite alternate ease-in-out;
+}
+
+@keyframes arcoIris {
+  0%   { background-color: #e14a4a; transform: rotate(0deg); }
+  33%  { background-color: #fdde64; }
+  66%  { background-color: #6ada53; }
+  100% { background-color: #9bf6ff; transform: rotate(10deg); }
+}
+</style>
+</head>
+
+<body>
+
+<h1 style="font-family: tanamera, sans-serif; text-align: center;">Fotografia Analógica</h1>
+
+<div class="visualizador-container">
+    <button class="btn-slider btn-prev" onclick="mudarFoto(-1)">&#10094;</button>
+    <div class="slider-fotos" id="sliderFotos">
+        <img src="imagens/1.jpg">
+        <img src="imagens/m6.JPG">
+        <img src="imagens/2.jpg">
+        <img src="imagens/11.jpg">
+        <img src="imagens/15.jpg">
+        <img src="imagens/7.jpg">
+        <img src="imagens/14.jpg">
+        <img src="imagens/4.jpg">
+        <img src="imagens/9.jpg">
+        <img src="imagens/IMG_0484.jpg">
+        <img src="imagens/12.jpg">
+        <img src="imagens/IMG_8661.JPG">
+        <img src="imagens/16.JPG">
+        <img src="imagens/18.JPG">
+        <img src="imagens/19.JPG">
+        <img src="imagens/20.JPG">
+        <img src="imagens/21.JPG">
+        <img src="imagens/22.JPG">
+        <img src="imagens/23.JPG">
+        <img src="imagens/24.JPG">
+        <img src="imagens/25.JPG">
+        <img src="imagens/IMG_1773_VSCO.JPG">
+        <img src="imagens/paris.JPG">
+        <img src="imagens/ma.JPG">
+        <img src="imagens/ma2.JPG">
+    </div>
+    <button class="btn-slider btn-next" onclick="mudarFoto(1)">&#10095;</button>
+</div>
+
+<hr style="border: 1px solid black; width: 80%; margin-bottom: 50px;">
+
+<div style="position: relative; height: 2000px;"> <img src="imagens/1.jpg" class="foto" style="top:50px; left:50px;">
+
+
+    <img src="imagens/1.jpg" class="foto" style="top:50px; left:50px;">
+    <img src="imagens/m6.JPG" class="foto" style="top:50px; left:450px;">
+    <img src="imagens/2.jpg" class="foto" style="top:50px; left:850px;">
+
+    <img src="imagens/11.jpg" class="foto" style="top:350px; left:50px;">
+    <img src="imagens/15.jpg" class="foto" style="top:350px; left:450px;">
+    <img src="imagens/7.jpg" class="foto" style="top:350px; left:850px;">
+
+    <img src="imagens/14.jpg" class="foto" style="top:650px; left:50px;">
+    <img src="imagens/4.jpg" class="foto" style="top:650px; left:450px;">
+    <img src="imagens/9.jpg" class="foto" style="top:650px; left:850px;">
+
+    <img src="imagens/IMG_0484.jpg" class="foto" style="top:950px; left:50px;">
+    <img src="imagens/12.jpg" class="foto grande" style="top:950px; left:450px;">
+    <img src="imagens/IMG_8661.JPG" class="foto" style="top:950px; left:850px;">
+
+    <img src="imagens/16.JPG" class="foto" style="top:1250px; left:50px;">
+    <img src="imagens/18.JPG" class="foto" style="top:2190px; left:850px;">
+    <img src="imagens/19.JPG" class="foto" style="top:1250px; left:850px;">
+
+    <img src="imagens/20.JPG" class="foto" style="top:1550px; left:50px;">
+    <img src="imagens/21.JPG" class="foto" style="top:1550px; left:450px;">
+    <img src="imagens/22.JPG" class="foto" style="top:1550px; left:850px;">
+
+    <img src="imagens/23.JPG" class="foto" style="top:1850px; left:50px;">
+    <img src="imagens/24.JPG" class="foto" style="top:1850px; left:450px;">
+    <img src="imagens/25.JPG" class="foto" style="top:1850px; left:850px;">
+
+    <img src="imagens/IMG_1773_VSCO.JPG" class="foto" style="top:2150px; left:50px;">
+    <img src="imagens/paris.JPG" class="foto grande" style="top:2150px; left:450px;">
+    <img src="imagens/ma.JPG" class="foto" style="top:2150px; left:850px;">
+    <img src="imagens/ma2.JPG" class="foto" style="top:2450px; left:850px;">
+
+</div>
+
+
+<a href="index.html" class="botao-index" id="drag-index">INDEX</a> 
+
+<script>
+// LÓGICA DO VISUALIZADOR
+let indexAtual = 0;
+function mudarFoto(direcao) {
+    const slider = document.getElementById('sliderFotos');
+    const totalFotos = slider.querySelectorAll('img').length;
+    indexAtual += direcao;
+    
+    if (indexAtual >= totalFotos) indexAtual = 0;
+    if (indexAtual < 0) indexAtual = totalFotos - 1;
+    
+    // Move o slider com base na largura de 900px
+    slider.style.transform = `translateX(${-indexAtual * 900}px)`;
+}
+
+// FUNÇÃO DE ARRASTAR (Para as fotos livres)
+document.querySelectorAll(".foto").forEach(img => {
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  img.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    offsetX = e.clientX - img.offsetLeft;
+    offsetY = e.clientY - img.offsetTop;
+    img.style.cursor = "grabbing";
+    img.style.zIndex = 1000; // Traz para a frente ao clicar
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      img.style.left = (e.clientX - offsetX) + "px";
+      img.style.top = (e.clientY - offsetY) + "px";
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    img.style.cursor = "grab";
+  });
+});
+
+// Tornar o INDEX arrastável
+const indexBtn = document.getElementById("drag-index");
+let isDraggingIndex = false;
+let offX, offY;
+
+indexBtn.addEventListener("mousedown", (e) => {
+    isDraggingIndex = true;
+    offX = e.clientX - indexBtn.offsetLeft;
+    offY = e.clientY - indexBtn.offsetTop;
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (isDraggingIndex) {
+        indexBtn.style.left = (e.clientX - offX) + "px";
+        indexBtn.style.top = (e.clientY - offY) + "px";
+    }
+});
+
+document.addEventListener("mouseup", () => isDraggingIndex = false);
+
+</script>
+
+
+</body>
+</html>

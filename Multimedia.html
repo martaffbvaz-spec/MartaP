@@ -1,0 +1,135 @@
+<!DOCTYPE html> 
+<html lang="pt-pt">  
+<head> 
+    <title>Multimedia</title>
+    <meta charset="UTF-8">
+
+    <style> 
+        body {
+            background-color: black;
+            margin: 0;
+            font-family: Helvetica, Arial, sans-serif;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            margin: 40px 0;
+        }
+
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            padding: 40px;
+            justify-items: center;
+        }
+
+        .video {
+            width: 100%;
+            max-width: 500px;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0px 10px 30px rgba(255,255,255,0.1);
+        }
+
+        /* ÚLTIMO VÍDEO MAIOR */
+        .video-grande {
+            max-width: 700px;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 85%;
+            height: 85%;
+            background: white;
+            position: relative;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 40px;
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Multimedia</h1>
+
+<div class="videos">
+
+    
+    <video class="video" onclick="openModal('trabalhos/refugio.pdf')" controls>
+        <source src="imagens/finalrefugio.mp4" type="video/mp4">
+    </video>
+
+    
+    <video class="video" onclick="openModal('trabalhos/lsd.pdf')" controls>
+        <source src="imagens/final lsd.mp4" type="video/mp4">
+    </video>
+
+   <video class="video video-grande" onclick="openModal('trabalhos/flui.pdf')" controls>
+        <source src="imagens/video publ.mp4" type="video/mp4">
+    </video> 
+
+    <video class="video" onclick="openModal('trabalhos/eu.pdf')" controls>
+        <source src="imagens/IMG_1624.mp4" type="video/mp4">
+    </video>
+
+     
+    
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">×</span>
+
+        <iframe id="pdfViewer"></iframe>
+
+    </div>
+
+</div>
+
+<script>
+function openModal(pdf) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("pdfViewer").src = pdf;
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("pdfViewer").src = "";
+}
+</script>
+
+</body>
+</html>
